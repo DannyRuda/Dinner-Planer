@@ -4,47 +4,50 @@ import './add-recipe.jpg';
 import './dinner-collage.jpg';
 import './pasta-dish.jpg';
 import './thinking-woman.jpg';
+import {home} from './home';
+import {generateDish} from './generateDish';
+import {allDishes} from './allDishes';
+import {addDishes} from './addDishes';
 
-document.querySelector('body').innerHTML = `<div id="content">
-<header>
-  <div class="heading"><h1 class="main-heading">Dinner Planner</h1></div>
-  <div class="nav">
-    <ul>
-      <li>Home</li>
-      <li>Generate Dishes</li>
-      <li>All Dishes</li>
-      <li>Add Dishes</li>
-    </ul>
-  </div>
-</header>
-<div class="main" id="Home">
-  <div class="heading">
-    <h1>What should we eat for dinner?</h1>
-  </div>
-  <div class="img" id="main-img"></div>
-  <div class="text">
-    <p>Safe the time you would spend on thinking about what to eat for dinner and spend it on important things!<br>
-    This Dinner Planer will show you a selection of recepies to chose from or just tell you what to have for dinner</p>
-  </div>
-  <div class="offers">
-      <div class="offer">
-          <div class="img" id="selection">
-              <div class="desc"><p>View a selection<br>of delicious<br>recipies</p></div>
-          </div>
-      </div>
-      <div class="offer">
-          <div class="img" id="generator">
-              <div class="desc"><p>Cant decide?<br>Let the dinner planer<br>show you what dish<br>to make for dinner</p></div>
-          </div>
-      </div>
-      <div class="offer">
-          <div class="img" id="add-recipe">
-              <div class="desc"><p>Add your own recipies<br>to the collection</p></div>
-          </div>
-      </div>
-  </div>
-</div>
-</div>`
+home.loadInitialPage();
 
-alert('webpack bundling worked');
-console.log('is div still there?');
+(() => {
+  let navButtons = document.querySelectorAll('ul li');
+  let buttonHome = navButtons.item(0);
+  let buttonGenerateDish = navButtons.item(1);
+  let buttonAllDishes = navButtons.item(2);
+  let buttonAddDishes = navButtons.item(3);
+
+  function removeElements() {
+    document.querySelector('.main').replaceChildren();
+  }
+
+  function changeActiveNavButton(e) {
+    document.querySelector('li.active').classList.remove('active');
+    e.target.classList.add('active');
+  }
+
+  buttonHome.addEventListener('click', (e)=>{
+    removeElements();
+    home.loadPage();
+    changeActiveNavButton(e);
+  });
+
+  buttonGenerateDish.addEventListener('click', (e)=>{
+    removeElements();
+    generateDish.loadPage();
+    changeActiveNavButton(e);
+  });
+  
+  buttonAllDishes.addEventListener('click',(e)=>{
+    removeElements();
+    allDishes.loadPage();
+    changeActiveNavButton(e);
+  });
+
+  buttonAddDishes.addEventListener('click',(e)=>{
+    removeElements();
+    addDishes.loadPage();
+    changeActiveNavButton(e);
+  });
+})()

@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+Home 
+    export {home}
+    
+    home = (() => {
+        function loadpage{
+            create and add html elements to DOM
+        }
+        return {loadpage};
+    })()
+
+generate Dish
+    export 
+
+    

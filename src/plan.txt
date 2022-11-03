@@ -1,0 +1,100 @@
+one module for each menu point
+    Home
+    generate dish     
+    all Dishes
+    add Dishes
+
+each module needs to export a function that "loads the content on the page" meaning
+creating and adding the html elements to the DOM.
+
+    Home
+        export .....
+        function loadpage{
+            create and add html elements to DOM
+        }
+        
+    generate dish
+        export .....
+
+        create and add html elements to DOM
+
+        show random dish
+            logic:
+                create button element and add event handler
+                get random element from dishes array
+
+            DOMstuff:
+                show recipe card
+                    add elements of recipe card to DOM
+                    set values of elements corresponding to the dish element/object
+                change text in the generate dish button
+        
+        show another random dish
+            logic:
+                get new random element from dishes array thats not the old one
+            
+            DOMstuff:
+                change values of recipe card elements corresponding to new element
+    
+    All Dishes
+        export .....
+
+        create and add html elements to DOM
+            logic: 
+                provide array with dishes objects
+
+            DOMstuff:
+                create html elements for each object
+                set values of html elements corresponding to object
+                add elements to DOM
+    
+    Add Dishes
+        export .....
+
+        create and add html elements to DOM
+
+        add new Dish to the dishes array
+            let input form for Dish data pop up on button click
+                logic:
+                    create button element and add event handler
+
+                DOMstuff:
+                    create and add form elements to DOM
+
+            Add a dish with the entered dish data to the collection
+                logic: 
+                    create button element 
+                    form validation
+                    stop form from reloading the page
+                    fetch the entered data from the form input fields
+                    create object with the data fetched from the form
+                    add object to the array
+    
+    index.js 
+        import ....
+
+        load the initial page (home)
+
+        change the page content when a menu point is clicked
+            load page again with corresponding content to the menu point
+                logic: 
+                    check wether the clicked menu point is already loaded
+                    create elements for menu points and add event handlers calling the function that the modules export
+                
+                DOMstuff:
+
+        change appearance of the currently active menu point
+            logic:
+                add event handler to menu point elements
+                    home.addevent click removeElements
+                    home.addevent click loadpage
+                    home.addevent click removeclass former active
+                    home.addevent click addclass active
+
+            DOMstuff:
+                add class "active" to the clicked element 
+
+                remove class active from the former active menu point.  
+                    document.queryselector('li .active').classList.remove('active)
+
+

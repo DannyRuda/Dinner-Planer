@@ -37,6 +37,11 @@ li:hover {
     transform: translateY(-15%);
 }
 
+li.active {
+    border-bottom: 2px solid grey;
+    pointer-events: none;
+}
+
 .main {
     width: 100%;
     text-align: center;
