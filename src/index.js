@@ -1,8 +1,8 @@
 import './reset.css';
 import './style.css';
 import './add-recipe.jpg';
-import './dinner-collage.jpg';
-import './pasta-dish.jpg';
+import DinnerCollage from './dinner-collage.jpg';
+import PastaDish from './pasta-dish.jpg';
 import './thinking-woman.jpg';
 import {home} from './home';
 import {generateDish} from './generateDish';
@@ -24,12 +24,12 @@ home.logVariabel(variabel);
   let dishArray = [{
     name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
     ingredients: ['Kartoffeln','Spinat','Salz'],
-    'cooking steps': ['step1','step2'], img: './dinner-collage.jpg'
+    'cooking steps': ['step1','step2'], img: DinnerCollage
   },
   {
     name: 'Nudeln mit Soße', prepTime: '5min', cookTime: '15min', 
     ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
-    'cooking steps': ['step1','step2'], img: './pasta-dish.jpg'
+    'cooking steps': ['step1','step2'], img: PastaDish
   }
   ];
   

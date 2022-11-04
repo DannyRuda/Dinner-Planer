@@ -1,5 +1,4 @@
-import './dinner-collage.jpg';
-import './pasta-dish.jpg';
+import './dinner-collage.jpg'
 export {generateDish};
 
 let generateDish = (()=>{
