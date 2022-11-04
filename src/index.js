@@ -38,6 +38,8 @@ home.logVariabel(variabel);
       document.querySelector('button.generate-dish').addEventListener('click', ()=>{
         generateDish.generate(dishArray)
       })
+    } else if(e.target.innerText === 'Add Dishes') {
+        console.log('funktion wird noch erstellt');
     }
   }
 
@@ -73,5 +75,6 @@ home.logVariabel(variabel);
     removeElements();
     addDishes.loadPage();
     changeActiveNavButton(e);
+    addEventlistenerToButtons(e);
   });
 })()

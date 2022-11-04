@@ -71,10 +71,18 @@ generate Dish
     
 
 All Dishes  
-    export  
+    export  allDishes(modular pattern)
 
     do on loadPage: show all dishes with pictures on cards
         get dishArray
         create html elements as a string
         loop through array and add html tags corresponding to the dish as a string to html string
         add htmlstring to innerHTML of DOM element 
+
+
+
+Add Dishes
+    export 
+
+    Add a dish to the dishArray via user input
+    
