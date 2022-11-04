@@ -73,5 +73,9 @@ let home = (()=>{
                 </div>
             </div>`
     }
-    return {loadInitialPage, loadPage};
+
+    function logVariabel(variabel) {
+        console.log(variabel);
+    }
+    return {loadInitialPage, loadPage, logVariabel};
 })() 

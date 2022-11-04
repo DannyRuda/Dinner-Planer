@@ -11,12 +11,35 @@ import {addDishes} from './addDishes';
 
 home.loadInitialPage();
 
+let variabel = 3;
+
+home.logVariabel(variabel);
+
 (() => {
   let navButtons = document.querySelectorAll('ul li');
   let buttonHome = navButtons.item(0);
   let buttonGenerateDish = navButtons.item(1);
   let buttonAllDishes = navButtons.item(2);
   let buttonAddDishes = navButtons.item(3);
+  let dishArray = [{
+    name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
+    ingredients: ['Kartoffeln','Spinat','Salz'],
+    'cooking steps': ['step1','step2'], img: './dinner-collage.jpg'
+  },
+  {
+    name: 'Nudeln mit Soße', prepTime: '5min', cookTime: '15min', 
+    ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
+    'cooking steps': ['step1','step2'], img: './pasta-dish.jpg'
+  }
+  ];
+  
+  function addEvent(e) {
+    if (e.target.innerText === 'Generate Dishes'){
+      document.querySelector('button.generate-dish').addEventListener('click', ()=>{
+        generateDish.generate(dishArray)
+      })
+    }
+  }
 
   function removeElements() {
     document.querySelector('.main').replaceChildren();
@@ -37,6 +60,7 @@ home.loadInitialPage();
     removeElements();
     generateDish.loadPage();
     changeActiveNavButton(e);
+    addEvent(e);
   });
   
   buttonAllDishes.addEventListener('click',(e)=>{

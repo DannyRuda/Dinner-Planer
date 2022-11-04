@@ -17,7 +17,56 @@ Home
         return {loadpage};
     })()
 
+recipe object structure:
+    name: recipename
+    prepTime: preperation prepTime
+    cookTime: cooking time
+    ingredients: [ingredient1, ingredient2...]
+    cooking steps: [step1,step2...]
+    img: 'url'
+
 generate Dish
     export 
 
+    show random dish:
+        get data from object array preferably through a function
+            function 
+                if (document.queryselector('.recipe-card').innerHTML)
+                    const findCurrentDish = (object) => object.name === document.querySelector('.card-info h1').innerText
+                    let removedDish =array.splice(array.findIndex(findCurrentDish),1)
+                    let dish = array[Math.floor(math.random()*array.length)]
+                    array.push(removedDish);
+                let dish = array[Math.floor(math.random()*array.length)];
+                return dish;
+
+        function for adding html elements to the dom with the correct values
+            creating the html elements as a string
+                function (dish)
+                    let ingredientsString = '';
+                    for (let ingredient of dish.Ingredients)
+                        ingredientsString += '<li>${ingredient}</li>' 
+                    let htmlstring = `
+                        <div class="card-header">
+                            <div class="img" id="card-img"></div>
+                            <div class="card-info">
+                                <h1>${dish.name}</h1>
+                                <p>prep Time: ${dish.prepTime}</p>
+                                <p>cooking Time: ${dish.cookTime}</p>
+                            </div>
+                        </div>
+                        <div class="Ingredients">
+                            <h1>
+                                Ingredients:
+                            </h1>
+                            <ul>
+                                ${ingredientsString}
+                            </ul>
+                        </div>`
+                    return htmlString;
+
+            function for adding the html elements to the DOM 
+                function (htmlstring)
+                    document.querySelector('.recipe-card).innerHTML = htmlString;
+
     
+        
