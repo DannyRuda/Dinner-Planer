@@ -33,7 +33,7 @@ home.logVariabel(variabel);
   }
   ];
   
-  function addEvent(e) {
+  function addEventlistenerToButtons(e) {
     if (e.target.innerText === 'Generate Dishes'){
       document.querySelector('button.generate-dish').addEventListener('click', ()=>{
         generateDish.generate(dishArray)
@@ -60,12 +60,12 @@ home.logVariabel(variabel);
     removeElements();
     generateDish.loadPage();
     changeActiveNavButton(e);
-    addEvent(e);
+    addEventlistenerToButtons(e);
   });
   
   buttonAllDishes.addEventListener('click',(e)=>{
     removeElements();
-    allDishes.loadPage();
+    allDishes.loadPage(dishArray);
     changeActiveNavButton(e);
   });
 

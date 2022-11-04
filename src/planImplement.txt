@@ -26,7 +26,7 @@ recipe object structure:
     img: 'url'
 
 generate Dish
-    export 
+    export generateDish (modular pattern)
 
     show random dish:
         get data from object array preferably through a function
@@ -69,4 +69,12 @@ generate Dish
                     document.querySelector('.recipe-card).innerHTML = htmlString;
 
     
-        
+
+All Dishes  
+    export  
+
+    do on loadPage: show all dishes with pictures on cards
+        get dishArray
+        create html elements as a string
+        loop through array and add html tags corresponding to the dish as a string to html string
+        add htmlstring to innerHTML of DOM element 

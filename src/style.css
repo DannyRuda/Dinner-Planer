@@ -86,6 +86,7 @@ p {
    justify-content: center;
    align-items: center;
    border-radius: 20%;
+   background-size: cover;
 }
 
 .img p {
@@ -108,12 +109,10 @@ p {
 
 #generator {
     background-image: url(./pasta-dish.jpg);
-    background-size: cover;
 }
 
 #add-recipe {
     background-image: url(./add-recipe.jpg);
-    background-size: cover;
 }
 
 .generate-dish {
@@ -156,7 +155,6 @@ p {
 
 #card-img {
     background-image: url(./pasta-dish.jpg);
-    background-size: cover;
     border-radius: 20%;
     height: 200px;
 }
@@ -174,10 +172,6 @@ p {
 
 h2 {
     font-size: 20px;
-}
-
-#eins {
-    background-image: url(./dinner-collage.jpg);
 }
 
 .dishes {
