@@ -101,5 +101,7 @@ Add Dishes
                 append to divingredients
 
         add generate new inputfield on button click to corresponding button
+
+        generate Object with form values
         
 
