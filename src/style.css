@@ -187,3 +187,70 @@ h2 {
     width:30%;
     margin: 20px;
 }
+
+.formBackground {
+    width: 100vw;
+    height:100vh;
+    z-index: 5;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: rgba(0, 0, 0, 0.144);
+}
+
+.dishForm {
+    background-color: #f0eef1;
+    border: 1px solid grey;
+    border-radius: 15px;
+    min-width: 250px;
+    width: 20%;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(1);
+    margin: 0px auto;
+}
+
+form {
+    margin: 0 auto;
+    width:90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    font-family: poppins;
+}
+
+form h2 {
+    padding:10px;
+}
+
+input {
+    display:block;
+    padding: 10px;
+    font-family: inherit;
+    border:none;
+    background-color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+.submit {
+    margin-bottom: 20px;
+}
+
+.submit:hover {
+    box-shadow: 1px 1px 3px grey;
+}
+
+.submit:active {
+    box-shadow: 0px 0px 1px grey;
+}
