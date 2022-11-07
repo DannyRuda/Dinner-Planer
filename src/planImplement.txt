@@ -85,4 +85,21 @@ Add Dishes
     export 
 
     Add a dish to the dishArray via user input
-    
+        form popup on buttonclick
+        form closes when submitting
+            calls resetformvalues function
+            supressDefaultBehaviour: event.preventDefault()
+        form validation
+
+        fetch entered data from form input fields after validation
+            function new FormData 
+        
+        generte new input field on button click
+            function createElement and appendchild
+                create input element
+                add attributes type, name (ingredient + divingredients.children.length-1), placeholder="Ingredient divingredients.children.length-1"  
+                append to divingredients
+
+        add generate new inputfield on button click to corresponding button
+        
+

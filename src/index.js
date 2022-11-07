@@ -39,7 +39,15 @@ home.logVariabel(variabel);
         generateDish.generate(dishArray)
       })
     } else if(e.target.innerText === 'Add Dishes') {
-        console.log('funktion wird noch erstellt');
+        document.querySelector('button').addEventListener('click', ()=>{
+          let formBackground = document.querySelector('.formBackground');
+          let newDishForm = document.querySelector('.dishForm');
+          formBackground.classList.remove('hide')
+          newDishForm.classList.remove('hide')
+          formBackground.addEventListener('click', addDishes.closeForm);
+          newDishForm.addEventListener('mouseover',()=>{formBackground.removeEventListener('click',addDishes.closeForm)});
+          newDishForm.addEventListener('mouseleave',()=>{formBackground.addEventListener('click', addDishes.closeForm)});
+        })
     }
   }
 
