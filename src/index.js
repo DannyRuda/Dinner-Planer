@@ -48,6 +48,16 @@ home.logVariabel(variabel);
           newDishForm.addEventListener('mouseover',()=>{formBackground.removeEventListener('click',addDishes.closeForm)});
           newDishForm.addEventListener('mouseleave',()=>{formBackground.addEventListener('click', addDishes.closeForm)});
         })
+        document.querySelector('.addIngredient').addEventListener('click',()=>{
+          addDishes.createNewInputField('Ingredient');
+        });
+        document.querySelector('.addStep').addEventListener('click',()=>{
+          addDishes.createNewInputField('Step');
+        });
+        document.querySelector('.submit').addEventListener('click',(e)=>{
+          e.preventDefault();
+          addDishes.addDishObjectToArray(dishArray);
+        });
     }
   }
 
