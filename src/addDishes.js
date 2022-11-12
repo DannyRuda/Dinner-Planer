@@ -52,7 +52,7 @@ let addDishes = (()=>{
 
   function getFormData() {
     let formData = new FormData(document.querySelector('form'));
-    console.log(formData);
+
     let formDataArray = [];
     for (let i of formData.entries()) {
       formDataArray.push(i[1]);
@@ -65,7 +65,7 @@ let addDishes = (()=>{
   }
 
   function addDishObjectToArray(dishArray, formDataArray = getFormData()) {
-    console.log(formDataArray[5]);
+
     let ingredients = [];
     let steps = [];
     let ingredientsDiv = document.querySelector('.Ingredients');
@@ -76,7 +76,10 @@ let addDishes = (()=>{
     for (let i = formDataArray.length-stepsDiv.children.length-ingredientsDiv.children.length+2;i<formDataArray.length-stepsDiv.children.length+1; i++) {
       ingredients.push(formDataArray[i]);
     }
-    let dishObject = createObject(formDataArray[0],formDataArray[1],formDataArray[2],ingredients,steps,testReadertoObject(document.querySelector('#recipe-img').files[0]))
+    let imgurl = testReadertoObject(document.querySelector('#recipe-img').files[0]);
+    console.log(imgurl);
+    let dishObject = createObject(formDataArray[0],formDataArray[1],formDataArray[2],ingredients,steps,imgurl);
+    console.log(dishObject.img)
     dishArray.push(dishObject);
     window.localStorage.setItem('one',JSON.stringify(dishObject));
     loadPage();
@@ -121,29 +124,25 @@ let addDishes = (()=>{
 
   function testImgUploadLoader() {
     let testFile = document.querySelector('#recipe-img').files[0];
-    console.log(testFile);
+
     let testurl = '';
     let testReader = new FileReader();
-    console.log(testReader);
+
     testReader.addEventListener('load', ()=> {
-      console.log('enters eventListener')
       testurl = testReader.result;
       document.querySelector('#img-preview').style.backgroundImage = `url(${testurl})`;
     })
     testReader.readAsDataURL(testFile);
     window.setTimeout(()=>{
-      console.log(testurl);
+
     },100)
   }
 
   function testReadertoObject(file) {
     let testReader = new FileReader();
     testReader.readAsDataURL(file);
-    window.setTimeout(()=>{
-      console.log(testReader.result);
-      return testReader.result;
-    },100)
-    
+    console.log(testReader.readyState);
+    return testReader.result;
   }
   /* TEST ZONE OVER */
 
