@@ -103,5 +103,8 @@ Add Dishes
         add generate new inputfield on button click to corresponding button
 
         generate Object with form values
-        
+
+
+
+save array with objects to localstorage  
 

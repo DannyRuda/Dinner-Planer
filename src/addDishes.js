@@ -1,5 +1,8 @@
 export {addDishes}
 import {dishArray} from './index'
+import DinnerCollage from './dinner-collage.jpg';
+import PastaDish from './pasta-dish.jpg';
+
 let addDishes = (()=>{
   function loadPage() {
     document.querySelector('.main').innerHTML = `<button class="generate-dish">Add your own Dish</button>
@@ -64,8 +67,25 @@ let addDishes = (()=>{
     return {name,prepTime,cookTime,ingredients,steps,img}
   }
 
-  function addDishObjectToArray(dishArray, formDataArray = getFormData()) {
+  function saveDishArray(dishArray) {
+    localStorage.setItem('dishArray',JSON.stringify(dishArray));
+  }
 
+  function loadDishArray() {
+    return JSON.parse(localStorage.getItem('dishArray')) || [{
+      name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
+      ingredients: ['Kartoffeln','Spinat','Salz'],
+      'cooking steps': ['step1','step2'], img: DinnerCollage
+    },
+    {
+      name: 'Nudeln mit Soße', prepTime: '5min', cookTime: '15min', 
+      ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
+      'cooking steps': ['step1','step2'], img: PastaDish
+    }
+    ];
+  }
+
+  function addDishObjectToArray(dishArray, formDataArray = getFormData()) {
     let ingredients = [];
     let steps = [];
     let ingredientsDiv = document.querySelector('.Ingredients');
@@ -81,7 +101,7 @@ let addDishes = (()=>{
     let dishObject = createObject(formDataArray[0],formDataArray[1],formDataArray[2],ingredients,steps,imgurl);
     console.log(dishObject.img)
     dishArray.push(dishObject);
-    window.localStorage.setItem('one',JSON.stringify(dishObject));
+    saveDishArray(dishArray);
     loadPage();
   }
 
@@ -146,7 +166,7 @@ let addDishes = (()=>{
   }
   /* TEST ZONE OVER */
 
-  return {loadPage,closeForm,createNewInputField,addDishObjectToArray};
+  return {loadPage,loadDishArray,closeForm,createNewInputField,addDishObjectToArray};
 })()
 
 /*

@@ -11,17 +11,7 @@ import {addDishes} from './addDishes';
 export {dishArray}
 home.loadInitialPage();
 
-let dishArray = [{
-  name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
-  ingredients: ['Kartoffeln','Spinat','Salz'],
-  'cooking steps': ['step1','step2'], img: DinnerCollage
-},
-{
-  name: 'Nudeln mit Soße', prepTime: '5min', cookTime: '15min', 
-  ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
-  'cooking steps': ['step1','step2'], img: PastaDish
-}
-];
+let dishArray = addDishes.loadDishArray();
 
 if( window.localStorage.getItem("one")) {
   let test = (JSON.parse(window.localStorage.getItem("one")));
