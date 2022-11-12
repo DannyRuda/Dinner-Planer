@@ -6,7 +6,7 @@ let allDishes = (()=>{
       let htmlString = '';
       for(let dish of dishArray) {
         console.log(dish);
-        htmlString += `<div class="img" style="background-image:url(${dish.img});"><div class="desc"><p>${dish.name}</p></div></div>`;
+        htmlString += `<div class="img" style="background-image:url(${dish.img});"><image src="${dish.img}" width="300" height="300"/><div class="desc"><p>${dish.name}</p></div></div>`;
       }
       console.log(htmlString)
       return htmlString;

@@ -8,12 +8,25 @@ import {home} from './home';
 import {generateDish} from './generateDish';
 import {allDishes} from './allDishes';
 import {addDishes} from './addDishes';
-
+export {dishArray}
 home.loadInitialPage();
 
-let variabel = 3;
+let dishArray = [{
+  name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
+  ingredients: ['Kartoffeln','Spinat','Salz'],
+  'cooking steps': ['step1','step2'], img: DinnerCollage
+},
+{
+  name: 'Nudeln mit Soße', prepTime: '5min', cookTime: '15min', 
+  ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
+  'cooking steps': ['step1','step2'], img: PastaDish
+}
+];
 
-home.logVariabel(variabel);
+if( window.localStorage.getItem("one")) {
+  let test = (JSON.parse(window.localStorage.getItem("one")));
+  console.log(test);
+}
 
 (() => {
   let navButtons = document.querySelectorAll('ul li');
@@ -21,7 +34,7 @@ home.logVariabel(variabel);
   let buttonGenerateDish = navButtons.item(1);
   let buttonAllDishes = navButtons.item(2);
   let buttonAddDishes = navButtons.item(3);
-  let dishArray = [{
+  /*let dishArray = [{
     name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
     ingredients: ['Kartoffeln','Spinat','Salz'],
     'cooking steps': ['step1','step2'], img: DinnerCollage
@@ -31,7 +44,7 @@ home.logVariabel(variabel);
     ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
     'cooking steps': ['step1','step2'], img: PastaDish
   }
-  ];
+  ];*/
   
   function addEventlistenerToButtons(e) {
     if (e.target.innerText === 'Generate Dishes'){
@@ -39,7 +52,7 @@ home.logVariabel(variabel);
         generateDish.generate(dishArray)
       })
     } else if(e.target.innerText === 'Add Dishes') {
-        document.querySelector('button').addEventListener('click', ()=>{
+        /*document.querySelector('button').addEventListener('click', ()=>{
           let formBackground = document.querySelector('.formBackground');
           let newDishForm = document.querySelector('.dishForm');
           formBackground.classList.remove('hide')
@@ -57,7 +70,7 @@ home.logVariabel(variabel);
         document.querySelector('.submit').addEventListener('click',(e)=>{
           e.preventDefault();
           addDishes.addDishObjectToArray(dishArray);
-        });
+        });*/
     }
   }
 
