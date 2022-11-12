@@ -5,36 +5,18 @@ let generateDish = (()=>{
     function loadPage () {
         document.querySelector('.main').innerHTML = `
           <button class="generate-dish">Generate Dish</button>
-          <div class="recipe-card">
-              <div class="card-header">
-                  <div class="img" id="card-img"></div>
-                  <div class="card-info">
-                      <h1>Tomato Pasta with meatballs</h1>
-                      <p>prep Time:</p>
-                      <p>cooking Time:</p>
-                  </div>
-              </div>
-              <div class="Ingredients">
-                  <h1>
-                      Ingredients:
-                  </h1>
-                  <ul>
-                      <li>400g meat</li>
-                      <li>1 bellpepper</li>
-                      <li>2 carrots</li>
-                      <li>1 onion</li>
-                  </ul>
-              </div>
-          </div>`
+          <div class="recipe-card"></div>`
     }
 
     function getDish (dishArray) {
         if (document.querySelector('.recipe-card').innerHTML) {
             const findCurrentDish = (object) => object.name === document.querySelector('.card-info h1').innerText;
-            let removedDish =dishArray.splice(dishArray.findIndex(findCurrentDish),1);
+            let removedDishIndex = dishArray.findIndex(findCurrentDish);
+            console.log(removedDishIndex)
+            let removedDish = dishArray.splice(dishArray.findIndex(findCurrentDish),1);
             console.log(removedDish)
             let dish = dishArray[Math.floor(Math.random()*dishArray.length)];
-            dishArray.push(removedDish[0]);
+            dishArray.splice(removedDishIndex,0,removedDish[0]);
             console.log(dishArray)
             return dish;
         }
@@ -75,3 +57,24 @@ let generateDish = (()=>{
     }
     return {loadPage,generate};
 })()
+
+
+/*<div class="card-header">
+                  <div class="img" id="card-img"></div>
+                  <div class="card-info">
+                      <h1>Tomato Pasta with meatballs</h1>
+                      <p>prep Time:</p>
+                      <p>cooking Time:</p>
+                  </div>
+              </div>
+              <div class="Ingredients">
+                  <h1>
+                      Ingredients:
+                  </h1>
+                  <ul>
+                      <li>400g meat</li>
+                      <li>1 bellpepper</li>
+                      <li>2 carrots</li>
+                      <li>1 onion</li>
+                  </ul>
+              </div> */
