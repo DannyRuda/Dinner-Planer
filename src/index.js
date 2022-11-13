@@ -61,6 +61,8 @@ if( window.localStorage.getItem("one")) {
           e.preventDefault();
           addDishes.addDishObjectToArray(dishArray);
         });*/
+    } else if (e.target.innerText === 'All Dishes') {
+        allDishes.addListenersToDivs(dishArray)
     }
   }
 
@@ -90,6 +92,7 @@ if( window.localStorage.getItem("one")) {
     removeElements();
     allDishes.loadPage(dishArray);
     changeActiveNavButton(e);
+    addEventlistenerToButtons(e);
   });
 
   buttonAddDishes.addEventListener('click',(e)=>{

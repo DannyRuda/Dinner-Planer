@@ -75,12 +75,12 @@ let addDishes = (()=>{
     return JSON.parse(localStorage.getItem('dishArray')) || [{
       name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
       ingredients: ['Kartoffeln','Spinat','Salz'],
-      'cooking steps': ['step1','step2'], img: DinnerCollage
+      steps: ['step1','step2'], img: DinnerCollage
     },
     {
       name: 'Nudeln mit Soße', prepTime: '5min', cookTime: '15min', 
       ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
-      'cooking steps': ['step1','step2'], img: PastaDish
+      steps: ['step1','step2'], img: PastaDish
     }
     ];
   }
@@ -90,10 +90,10 @@ let addDishes = (()=>{
     let steps = [];
     let ingredientsDiv = document.querySelector('.Ingredients');
     let stepsDiv = document.querySelector('.Steps')
-    for (let i = formDataArray.length-stepsDiv.children.length+1; i<formDataArray.length; i++) {
+    for (let i = formDataArray.length-1-stepsDiv.children.length+1; i<formDataArray.length-1; i++) {
       steps.push(formDataArray[i]);
     }
-    for (let i = formDataArray.length-stepsDiv.children.length-ingredientsDiv.children.length+2;i<formDataArray.length-stepsDiv.children.length+1; i++) {
+    for (let i = formDataArray.length-1-stepsDiv.children.length-ingredientsDiv.children.length+2;i<formDataArray.length-stepsDiv.children.length+1; i++) {
       ingredients.push(formDataArray[i]);
     }
     let imgurl = testReadertoObject(document.querySelector('#recipe-img').files[0]);
@@ -121,7 +121,7 @@ let addDishes = (()=>{
   function closeForm() {
     document.querySelector('.dishForm').classList.add('hide');
     document.querySelector('.formBackground').classList.add('hide');
-    resetFormValues();
+    
   }
 
   /* TEST ZONE */

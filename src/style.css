@@ -219,6 +219,8 @@ h2 {
     left:50%;
     transform: translate(-50%, -50%) scale(1);
     margin: 0px auto;
+    max-height: 100vh;
+    overflow: scroll;
 }
 
 form {
@@ -278,4 +280,29 @@ form label {
     height: 200px;
     background-size: cover;
     border: 1px solid black;
+}
+
+.desc p {
+    pointer-events: none;
+}
+
+.recipeBackground {
+    width: 100vw;
+    height:100vh;
+    z-index: 5;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: rgba(0, 0, 0, 0.144);
+}
+
+#allDishesCard .recipe-card {
+    min-width: 250px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-height: 100vh;
+    background-color: #f0eef1;
 }

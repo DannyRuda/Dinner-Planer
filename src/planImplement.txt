@@ -79,6 +79,67 @@ All Dishes
         loop through array and add html tags corresponding to the dish as a string to html string
         add htmlstring to innerHTML of DOM element 
 
+    click on recipe to show recipe card 
+        add event handler to every recipe block 
+        add recipe card to DOM 
+            get the corresponding dish object (maybe through comparing target name and object name, maybe with data-attribute)
+                function (e,dishArray)
+                    let dishIndex = dishArray.findIndex((object)=>{e.target.children.innerText === object.name})
+                    return dishArray[dishIndex];
+
+            create htmlstring with object data 
+                function (dish)
+                        let ingredientsString = '';
+                        for (let ingredient of dish.Ingredients) {
+                            ingredientsString += `<li>${ingredient}</li>`;
+                        }
+                        let stepsString = '';
+                        for (let step of dish.Steps) {
+                            stepsString += `<li>${step}</li>`;
+                        }
+                        let htmlString = `
+                        <div class="card-header">
+                            <div class="img" id="card-img" style="background-image:url(${dish.img});"></div>
+                            <div class="card-info">
+                            <h1>${dish.name}</h1>
+                            <p>prep Time: ${dish.prepTime}</p>
+                            <p>cooking Time: ${dish.cookTime}</p>
+                            </div>
+                        </div>
+                        <div class="Ingredients">
+                            <h1>
+                                Ingredients:
+                            </h1>
+                            <ul>
+                                ${ingredientsString}
+                            </ul>
+                        </div>
+                        <div class="Steps">
+                            <h1>
+                                Steps:
+                            </h1>
+                            <ul>
+                                ${stepsString}
+                            </ul>
+                        </div>`;
+                        return htmlString;
+                    
+            create Element and add html string as innerText and append Element or just add html string as innertext to existing DOM
+                function (htmlString,dishArray) 
+                    let element = document.createElement('div')
+                    element.class = "recipeBackground"
+                    element.id = "allDishesCard"
+                    element.innerText = htmlString;
+
+        close recipe card when clicking next to it
+            remove recipeBackground div from main div
+                function
+                    document.querySelector('.main').removeChild(document.querySelector('.recipeBackground'));
+            add the function to background and remove it for the duration, the mouse hovers over the card
+                addeventlistener to background with remove function
+                add eventlistener to card with mouseover event that removes the listener from background 
+                add eventlistener to card with mouseleave event that adds the listener back to background      
+
 
 
 Add Dishes
@@ -107,4 +168,6 @@ Add Dishes
 
 
 save array with objects to localstorage  
+
+
 
