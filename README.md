@@ -12,34 +12,41 @@ Click the link to see the [live page](https://dannyruda.github.io/Dinner-Planer/
 
 ## Demo Video
 ---
-![Showcase GIF](./resources/images/showcaseGIF.gif)
+![Showcase GIF](./src/readmeSources/demo-gif.gif)
 
 Showcases some example features
 
 ## Motivation
 ---
-I build this project to reinforce my understanding of the newly learned object concepts in JavaScript and refresh my knowledge of DOM manipulation with JavaScript after not coding for roughly 2 months due to moving and other reasons.
+The goal of this project was to practice the use of webpack and npm together with ES6 modules and to build a website with multiple tabs using those technologies. Webpack should used to bundle the modules from a src folder to a single main.js file in a dist folder and also automatically create an index.html file with everything linked in the order they need to be loaded. Additionally the used images should also be optimized and transfered from the src folder into the dist folder. During the project i also got the idea to solve a personal problem of mine. I wanted to build a website where i can store my personal recipes and let the website tell me what to cook for dinner with showing me a random dish or recipe from the collection. During the brainstorming for that idea, i also wanted to learn how the user can upload an image and how i can use the localStorage to store my recipes so they survive even amongst sessions.
 
 ## Features
 ---
-- Adding Books with manually entered data
-- Removing books from the page
-- Changing the read status by clicking the status
-- Form validation: only entering positive numbers will let you create a book and you must fill each input field to create a book
-- closing the popup when creating a new book by clicking next to the popup window
-- Responsive design for all screen sizes
+- Multiple Tabs or menu points
+- Add your own Recipes to the collection
+- Remove recipes from the collection
+- Browse all recipes in the collection
+- Show the full recipe with ingredients and steps when clicking on a recipe in the all dishes tab
+- Let the Website show you a random dish from the collection in the Generate Dish tab
+- Doesn't show you the same dish twice unless there is only one dish in the collection
+- Each Tabs logic is writen in its own javascript file/module and bundled using webpack
+
 
 ## Technologies used
 ---
 - JavaScript
 - CSS3
 - HTML 5
+- Webpack
 
-## Credits
+## Future Improvements
 ---
-The Design of this website is heavily inspired by michalosman's version of this library project. 
-
-[Michalosman Github](https://github.com/michalosman)
+- Overall Design
+- Design and layout of the recipes cards
+- Design and layout of the recipes previews in the All Dishes tab
+- make image upload for own recipes work with asynchronus functions
+- allow editing a recipe 
+- Make it possible to enter ingredients in the Generate Dish tab so that the randomly shown recipe will contain all entered ingredients to get a dish that will use your leftovers
 
 ## License
 ---
