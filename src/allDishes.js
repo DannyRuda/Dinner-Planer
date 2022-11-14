@@ -41,10 +41,12 @@ let allDishes = (()=>{
     function getDish(e,dishArray) {
       console.log(e.target.tagName)
       if(e.target.tagName === 'DIV') {
+        console.log('enters div')
         let dishIndex = dishArray.findIndex((object)=>e.target.children[0].innerText === object.name)
         return dishArray[dishIndex];
-      } else if(e.target.tagName === 'button') {
+      } else if(e.target.tagName === 'BUTTON') {
         let dishIndex = dishArray.findIndex((object)=>e.target.parentNode.children[0].children[0].innerText === object.name)
+        console.log(dishIndex);
         return dishArray[dishIndex];
       }
     }
@@ -52,6 +54,7 @@ let allDishes = (()=>{
     let dishObject = (()=>{
       function remove(dish,dishArray) {
         let objectIndex = dishArray.findIndex((object)=>object == dish);
+        console.log(objectIndex)
         dishArray.splice(objectIndex,1)
       }
       function saveDishArray(dishArray) {
