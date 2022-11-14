@@ -1,0 +1,3 @@
+- Fix Image upload and display (FIleReader is asynchronus, see async and await section in odin project)
+- Improve Recipe card
+- Make Changes to a Dish possible
