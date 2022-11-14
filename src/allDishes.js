@@ -6,7 +6,7 @@ let allDishes = (()=>{
       let htmlString = '';
       for(let dish of dishArray) {
         console.log(dish);
-        htmlString += `<div class="img" style="background-image:url(${dish.img});"><div class="desc"><p>${dish.name}</p></div></div>`;
+        htmlString += `<div class="img" style="background-image:url(${dish.img});"><div class="desc"><p>${dish.name}</p></div><button class="remove">remove</button></div>`;
       }
       console.log(htmlString)
       return htmlString;
@@ -16,6 +16,8 @@ let allDishes = (()=>{
       document.querySelector('.main').innerHTML = `<div class="dishes">
       ${innerHTML}
       </div>`;
+      addListenersToDivs(dishArray);
+      addListenersToRemoveButtons(dishArray);
     }
 
     function addListenersToDivs(dishArray) {
@@ -27,13 +29,41 @@ let allDishes = (()=>{
       }
     };
 
-    function getDish(e,dishArray) {
-      console.log(e.target)
-      console.log(e.target.children)
-      let dishIndex = dishArray.findIndex((object)=>e.target.children[0].innerText === object.name)
-      console.log(dishIndex)
-      return dishArray[dishIndex];
+    function addListenersToRemoveButtons(dishArray) {
+      let removeButtons = document.querySelectorAll('.remove');
+      for (let button of removeButtons) {
+        button.addEventListener('click',(e)=>{
+          dishObject.deleteDish(e,dishArray)
+        })
+      }
     }
+
+    function getDish(e,dishArray) {
+      console.log(e.target.tagName)
+      if(e.target.tagName === 'DIV') {
+        let dishIndex = dishArray.findIndex((object)=>e.target.children[0].innerText === object.name)
+        return dishArray[dishIndex];
+      } else if(e.target.tagName === 'button') {
+        let dishIndex = dishArray.findIndex((object)=>e.target.parentNode.children[0].children[0].innerText === object.name)
+        return dishArray[dishIndex];
+      }
+    }
+
+    let dishObject = (()=>{
+      function remove(dish,dishArray) {
+        let objectIndex = dishArray.findIndex((object)=>object == dish);
+        dishArray.splice(objectIndex,1)
+      }
+      function saveDishArray(dishArray) {
+        localStorage.setItem('dishArray',JSON.stringify(dishArray));
+      }
+      function deleteDish(e,dishArray) {   
+        remove(getDish(e,dishArray),dishArray);
+        saveDishArray(dishArray);
+        loadPage(dishArray);
+      }
+      return {deleteDish}
+    })()
 
     function createHtmlString(dish) {
       let ingredientsString = '';
@@ -93,5 +123,5 @@ let allDishes = (()=>{
       recipeCard.addEventListener('mouseover',()=>{recipeCardBackground.removeEventListener('click',removeRecipeCard)});
       recipeCard.addEventListener('mouseleave',()=>{recipeCardBackground.addEventListener('click',removeRecipeCard)});
     }
-    return {loadPage,addListenersToDivs,showRecipeCard};
+    return {loadPage,addListenersToDivs,addListenersToRemoveButtons,showRecipeCard};
 })()

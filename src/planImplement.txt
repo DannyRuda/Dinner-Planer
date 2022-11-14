@@ -138,7 +138,13 @@ All Dishes
             add the function to background and remove it for the duration, the mouse hovers over the card
                 addeventlistener to background with remove function
                 add eventlistener to card with mouseover event that removes the listener from background 
-                add eventlistener to card with mouseleave event that adds the listener back to background      
+                add eventlistener to card with mouseleave event that adds the listener back to background     
+
+    remove dish from tab and from dishArray on recipe remove button
+        get object corresponding to pressed recipe
+        remove object from dishArray
+        save dishArray again to localstorage
+        reload all Dishes tab
 
 
 

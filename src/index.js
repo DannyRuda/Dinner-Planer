@@ -62,7 +62,8 @@ if( window.localStorage.getItem("one")) {
           addDishes.addDishObjectToArray(dishArray);
         });*/
     } else if (e.target.innerText === 'All Dishes') {
-        allDishes.addListenersToDivs(dishArray)
+        /*allDishes.addListenersToDivs(dishArray);
+        allDishes.addListenersToRemoveButtons(dishArray);*/
     }
   }
 
