@@ -70,7 +70,7 @@ let addDishes = (()=>{
   function saveDishArray(dishArray) {
     localStorage.setItem('dishArray',JSON.stringify(dishArray));
   }
-
+let sahneSchinken = JSON.parse('{\"name\":\"Schinken Sahne Auflauf\",\"prepTime\":\"15 min\",\"cookTime\":\"35 min\",\"ingredients\":[\"250g Nudeln\",\"100g Sahne\",\"100g Schinken\",\"200ml Milch\",\"250g Brühe\",\"1/2 EL Mehl\",\"50g Schmelzkäse\",\"1/2 EL Tomatenmark\",\"1/2 TL Zucker\",\"200g Gratinkäse\",\"Weißwein\",\"Alle Flüssigkeiten in einen Topf gießen und mit dem Mehl vermischen.\"],\"steps\":[\"Alle Flüssigkeiten in einen Topf gießen und mit dem Mehl vermischen.\",\"Den Topf erhitzen und Schmelzkäse, Tomatenmark und Zucker hinzufügen und verrühren.\",\"Die Soße aufkochen und anschließend etwas köcheln lassen.\",\"Nudeln und Schinken in eine Auflaufform geben, die Soße dazugießen, mit dem Gratinkäse überstreuen und bei 200°C Ober-/ Unterhitze oder 180°C Umluft für 35 Minuten in den Ofen\"],\"img\":null}')
   function loadDishArray() {
     return JSON.parse(localStorage.getItem('dishArray')) || [{
       name: 'Kartoffeln mit Spinat', prepTime: '20min', cookTime: '20min', 
@@ -82,6 +82,7 @@ let addDishes = (()=>{
       ingredients: ['Nudeln','Passierte Tomaten','Sahne','Muskat','Schinkenwürfel'],
       steps: ['step1','step2'], img: PastaDish
     }
+    
     ];
   }
 
@@ -93,7 +94,7 @@ let addDishes = (()=>{
     for (let i = formDataArray.length-1-stepsDiv.children.length+1; i<formDataArray.length-1; i++) {
       steps.push(formDataArray[i]);
     }
-    for (let i = formDataArray.length-1-stepsDiv.children.length-ingredientsDiv.children.length+2;i<formDataArray.length-stepsDiv.children.length+1; i++) {
+    for (let i = formDataArray.length-1-stepsDiv.children.length-ingredientsDiv.children.length+2;i<formDataArray.length-stepsDiv.children.length; i++) {
       ingredients.push(formDataArray[i]);
     }
     let imgurl = testReadertoObject(document.querySelector('#recipe-img').files[0]);

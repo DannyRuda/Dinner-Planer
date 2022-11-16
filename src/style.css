@@ -138,6 +138,7 @@ form button {
     width:33%;
     margin: 0 auto;
     border:1px solid black;
+    overflow: scroll;
 }
 
 .card-header {
@@ -305,5 +306,9 @@ form label {
     transform: translate(-50%, -50%) scale(1);
     max-height: 100vh;
     background-color: #f0eef1;
+}
+
+.Steps ul {
+    width:80%;
 }
 
