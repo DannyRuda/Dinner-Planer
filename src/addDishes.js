@@ -97,13 +97,7 @@ let sahneSchinken = JSON.parse('{\"name\":\"Schinken Sahne Auflauf\",\"prepTime\
     for (let i = formDataArray.length-1-stepsDiv.children.length-ingredientsDiv.children.length+2;i<formDataArray.length-stepsDiv.children.length; i++) {
       ingredients.push(formDataArray[i]);
     }
-    let imgurl = testReadertoObject(document.querySelector('#recipe-img').files[0]);
-    console.log(imgurl);
-    let dishObject = createObject(formDataArray[0],formDataArray[1],formDataArray[2],ingredients,steps,imgurl);
-    console.log(dishObject.img)
-    dishArray.push(dishObject);
-    saveDishArray(dishArray);
-    loadPage();
+    testReadertoObject(document.querySelector('#recipe-img').files[0],formDataArray,dishArray,ingredients,steps);
   }
 
   function createNewInputField(category) {
@@ -159,12 +153,24 @@ let sahneSchinken = JSON.parse('{\"name\":\"Schinken Sahne Auflauf\",\"prepTime\
     },100)
   }
 
-  function testReadertoObject(file) {
-    let testReader = new FileReader();
-    testReader.readAsDataURL(file);
-    console.log(testReader.readyState);
-    return testReader.result;
+  function saveImgToRecipe(e,formDataArray,dishArray,ingredients,steps) {
+    let imgurl = e.target.result;
+    console.log(imgurl);
+    let dishObject = createObject(formDataArray[0],formDataArray[1],formDataArray[2],ingredients,steps,imgurl);
+    console.log(dishObject.img)
+    dishArray.push(dishObject);
+    saveDishArray(dishArray);
+    loadPage();
   }
+
+  function testReadertoObject(file,formDataArray, dishArray, ingredients, steps) {
+    let testReader = new FileReader();
+    testReader.addEventListener('load',(e)=>{
+      saveImgToRecipe(e,formDataArray,dishArray,ingredients,steps)
+    })
+    testReader.readAsDataURL(file);
+  }
+  
   /* TEST ZONE OVER */
 
   return {loadPage,loadDishArray,closeForm,createNewInputField,addDishObjectToArray};
